@@ -27,7 +27,7 @@ type QueryData struct {
 	SearchType string
 }
 
-//SearchResult is the type for the search results
+// SearchResult is the type for the search results
 type SearchResult struct {
 	Title  string
 	Year   string
@@ -35,7 +35,7 @@ type SearchResult struct {
 	Type   string
 }
 
-//SearchResponse is the struct of the response in a search
+// SearchResponse is the struct of the response in a search
 type SearchResponse struct {
 	Search       []SearchResult
 	Response     string
@@ -43,7 +43,7 @@ type SearchResponse struct {
 	totalResults int
 }
 
-//MovieResult is the result struct of an specific movie search
+// MovieResult is the result struct of an specific movie search
 type MovieResult struct {
 	Title             string
 	Year              string
@@ -83,7 +83,8 @@ type MovieResult struct {
 	Error             string
 }
 
-//Search for movies given a Title and year, Year is optional you can pass nil
+// Search returns a SearchResponse struct. The search query is within the QueryData
+// struct
 func Search(query *QueryData) (*SearchResponse, error) {
 	resp, err := requestAPI("search", query.Title, query.Year, query.SearchType)
 	if err != nil {
@@ -104,8 +105,8 @@ func Search(query *QueryData) (*SearchResponse, error) {
 	return r, nil
 }
 
-//MovieByTitle returns a MovieResult given Title
-func MovieByTitle(query *QueryData) (*MovieResult, error) {
+// LookupByTitle returns a MovieResult
+func LookupByTitle(query *QueryData) (*MovieResult, error) {
 	resp, err := requestAPI("title", query.Title, query.Year, query.SearchType)
 	if err != nil {
 		return nil, err
@@ -124,8 +125,8 @@ func MovieByTitle(query *QueryData) (*MovieResult, error) {
 	return r, nil
 }
 
-//MovieByImdbID returns a MovieResult given a ImdbID ex:"tt2015381"
-func MovieByImdbID(id string) (*MovieResult, error) {
+// LookupByImdbID returns a MovieResult given a ImdbID ex:"tt2015381"
+func LookupByImdbID(id string) (*MovieResult, error) {
 	resp, err := requestAPI("id", id)
 	if err != nil {
 		return nil, err
@@ -198,12 +199,12 @@ func checkErr(status int) error {
 	return nil
 }
 
-//Stringer Interface for MovieResult
+// Stringer Interface for MovieResult
 func (mr MovieResult) String() string {
 	return fmt.Sprintf("#%s: %s (%s)", mr.ImdbID, mr.Title, mr.Year)
 }
 
-//Stringer Interface for SearchResult
+// Stringer Interface for SearchResult
 func (sr SearchResult) String() string {
 	return fmt.Sprintf("#%s: %s (%s) Type: %s", sr.ImdbID, sr.Title, sr.Year, sr.Type)
 }

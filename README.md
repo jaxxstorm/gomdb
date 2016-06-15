@@ -24,14 +24,14 @@ func main() {
 	fmt.Println(res.Search)
 
 	query = &gomdb.QueryData{Title: "Macbeth", Year: "2015"}
-	res2, err := gomdb.MovieByTitle(query)
+	res2, err := gomdb.LookupByTitle(query)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	fmt.Println(res2)
 
-	res3, err := gomdb.MovieByImdbID("tt2884018")
+	res3, err := gomdb.LookupByImdbID("tt2884018")
 	if err != nil {
 		fmt.Println(err)
 		return

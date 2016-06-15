@@ -83,7 +83,7 @@ func TestInvalidCategory(t *testing.T) {
 	}
 }
 
-func TestMovieByTitle(t *testing.T) {
+func TestByTitle(t *testing.T) {
 	tests := []struct {
 		query *QueryData
 		title string
@@ -104,7 +104,7 @@ func TestMovieByTitle(t *testing.T) {
 	}
 
 	for i, item := range tests {
-		resp, err := MovieByTitle(item.query)
+		resp, err := LookupByTitle(item.query)
 		if err != nil {
 			t.Errorf("Test[%d]: %s", i, err)
 			continue
@@ -120,7 +120,7 @@ func TestMovieByTitle(t *testing.T) {
 	}
 }
 
-func TestMovieByImdbID(t *testing.T) {
+func TestByImdbID(t *testing.T) {
 	tests := []struct {
 		id    string
 		title string
@@ -144,7 +144,7 @@ func TestMovieByImdbID(t *testing.T) {
 	}
 
 	for i, item := range tests {
-		resp, err := MovieByImdbID(item.id)
+		resp, err := LookupByImdbID(item.id)
 		if err != nil {
 			t.Errorf("Test[%d]: %s", i, err)
 			continue
