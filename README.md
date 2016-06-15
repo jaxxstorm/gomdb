@@ -1,30 +1,17 @@
-The Golang Omdb API
-=======
+The Golang Omdb API [![GoDoc](https://godoc.org/github.com/agnivade/gomdb?status.svg)](https://godoc.org/github.com/agnivade/gomdb)
+===================
 
-Author: Christopher T. Herrera (eefretsoul AT gmail DOT com)
+This API uses the wonderful [omdbapi.com](http://omdbapi.com/) API by Brian Fritz. It is an implementation of that API in golang.
 
-<iframe src="http://githubbadge.appspot.com/eefret" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
-
-This API uses the [omdbapi.com](http://omdbapi.com/) API by Brian Fritz
-
-***
-### OMDBAPI.com
-This is an excellent open database for movie and film content.
-
-I *strongly* encourage you to check it out and contribute to keep it growing.
-
-### http://www.omdbapi.com
-***
-Project Usage
--------------
-The API usage is very simple.
+Usage
+-----
 
 ```go
 package main
 
 import (
 	"fmt"
-	"github.com/efret/gomdb"
+	"github.com/agnivade/gomdb"
 )
 
 func main() {
@@ -53,10 +40,5 @@ func main() {
 }
 ```
 
+Kindly look into the godocs for documentation on the response objects.
 
-See the project documentation to see the Response Objects and stuff
-
-Project Documentation
----------------------
-The automatically generated documentation can be found in godocs.
-[![GoDoc](https://godoc.org/github.com/eefret/go-imdb?status.svg)](https://godoc.org/github.com/eefret/go-imdb)
