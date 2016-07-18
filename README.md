@@ -1,4 +1,4 @@
-The Golang Omdb API [![GoDoc](https://godoc.org/github.com/agnivade/gomdb?status.svg)](https://godoc.org/github.com/agnivade/gomdb)
+The Golang Omdb API [![Build Status](https://travis-ci.org/agnivade/gomdb.svg?branch=master)](https://travis-ci.org/agnivade/gomdb) [![GoDoc](https://godoc.org/github.com/agnivade/gomdb?status.svg)](https://godoc.org/github.com/agnivade/gomdb)
 ===================
 
 This API uses the wonderful [omdbapi.com](http://omdbapi.com/) API by Brian Fritz. It is an implementation of that API in golang.
