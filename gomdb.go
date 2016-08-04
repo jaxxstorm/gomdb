@@ -25,6 +25,7 @@ type QueryData struct {
 	Year       string
 	ImdbId     string
 	SearchType string
+	Page       string
 }
 
 // SearchResult is the type for the search results
@@ -37,10 +38,10 @@ type SearchResult struct {
 
 // SearchResponse is the struct of the response in a search
 type SearchResponse struct {
-	Search       []SearchResult
-	Response     string
-	Error        string
-	totalResults int
+	Search   []SearchResult
+	Response string
+	Error    string
+	NumPages string `json:"totalResults"`
 }
 
 // MovieResult is the result struct of an specific movie search
@@ -86,7 +87,11 @@ type MovieResult struct {
 // Search returns a SearchResponse struct. The search query is within the QueryData
 // struct
 func Search(query *QueryData) (*SearchResponse, error) {
-	resp, err := requestAPI("search", query.Title, query.Year, query.SearchType)
+	resp, err := requestAPI("search",
+		query.Title,
+		query.Year,
+		query.SearchType,
+		query.Page)
 	if err != nil {
 		return nil, err
 	}
@@ -171,6 +176,7 @@ func requestAPI(apiCategory string, params ...string) (resp *http.Response, err 
 		parameters.Add("s", params[0])
 		parameters.Add("y", params[1])
 		parameters.Add("type", params[2])
+		parameters.Add("page", params[3])
 	case "title":
 		parameters.Add("t", params[0])
 		parameters.Add("y", params[1])
