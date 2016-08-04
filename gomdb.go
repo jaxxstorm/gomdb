@@ -24,8 +24,8 @@ type QueryData struct {
 	Title      string
 	Year       string
 	ImdbId     string
-	SearchType string
-	Page       string
+	SearchType string // The type of search - "movie", "series", "episode"
+	Page       string // In case of a paginated result, retrieve a particular page
 }
 
 // SearchResult is the type for the search results
@@ -33,7 +33,7 @@ type SearchResult struct {
 	Title  string
 	Year   string
 	ImdbID string
-	Type   string
+	Type   string // The type of search - "movie", "series", "episode"
 }
 
 // SearchResponse is the struct of the response in a search
