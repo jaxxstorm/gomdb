@@ -46,42 +46,37 @@ type SearchResponse struct {
 
 // MovieResult is the result struct of an specific movie search
 type MovieResult struct {
-	Title             string
-	Year              string
-	Rated             string
-	Released          string
-	Runtime           string
-	Genre             string
-	Director          string
-	Writer            string
-	Actors            string
-	Plot              string
-	Language          string
-	Country           string
-	Awards            string
-	Poster            string
-	Metascore         string
-	ImdbRating        string
-	ImdbVotes         string
-	ImdbID            string
-	Type              string
-	TomatoMeter       string
-	TomatoImage       string
-	TomatoRating      string
-	TomatoReviews     string
-	TomatoFresh       string
-	TomatoRotten      string
-	TomatoConsensus   string
-	TomatoUserMeter   string
-	TomatoUserRating  string
-	TomatoUserReviews string
-	TomatoURL         string
-	DVD               string
-	BoxOffice         string
-	Production        string
-	Website           string
-	Response          string
-	Error             string
+	Title      string
+	Year       string
+	Rated      string
+	Released   string
+	Runtime    string
+	Genre      string
+	Director   string
+	Writer     string
+	Actors     string
+	Plot       string
+	Language   string
+	Country    string
+	Awards     string
+	Poster     string
+	Metascore  string
+	ImdbRating string
+	ImdbVotes  string
+	ImdbID     string
+	Ratings    []Ratings
+	Type       string
+	DVD        string
+	BoxOffice  string
+	Production string
+	Website    string
+	Response   string
+	Error      string
+}
+
+type Ratings struct {
+	Source string
+	Value  string
 }
 
 // Search returns a SearchResponse struct. The search query is within the QueryData
